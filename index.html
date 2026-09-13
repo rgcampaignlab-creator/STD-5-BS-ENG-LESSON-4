@@ -130,60 +130,70 @@ header{background:rgba(255,255,255,.97);padding:12px 20px;border-radius:var(--ra
 <audio id="ttsPlayer" playsinline webkit-playsinline preload="auto" style="display:none"></audio>
 <script>
 const READ_LINES=['A wise king gave seeds to children and asked them to grow plants in three months. Ping\'s seeds did not grow. The king said only seeds with life will germinate. The seeds he gave were lifeless.',
-'Only living seeds germinate. The life within tiny seeds can grow into huge trees.',
-'Seeds differ in colour, size, shape and other features. Collect and compare many kinds of seeds.',
-'Even living seeds may not germinate if they do not get the right conditions.',
-'Take wet soil in a glass, put pea seeds, keep it in sunlight and water it. The seeds get soil, water, air and sunlight.',
-'Is soil necessary? Place seeds on a wet cotton ball without soil. Seeds can still germinate.',
-'Is water necessary? Seeds kept dry do not germinate. Water is necessary for germination.',
-'Is sunlight necessary? Seeds kept in a dark steel glass can still germinate. Sunlight is not necessary for germination.',
-'Water, air and suitable temperature are necessary for seed germination. Soil and sunlight are not necessary for the seed to germinate.',
+'Only living seeds germinate. The life within tiny seeds can grow into huge trees. Collect seeds and write name, colour, size, shape and other features.',
+'Even living seeds may not all germinate. Water, air and suitable temperature are necessary. Soil and sunlight are not necessary for the seed to germinate.',
 'Different seeds have different germination times and suitable temperatures.',
-'When a green gram seed germinates, the radicle comes out first. Then the plumule and cotyledons can be seen.',
-'The radicle grows into the root. The plumule grows into the shoot. Cotyledons store food for the baby plant.'];
-const VOCAB=[{id:'germinate',word:'germinate',meaning:'Begin to grow from a seed',emoji:'🌱',missingLetter:'e',missingDisplay:'g_rminate',letters:['g','e','r','m']},
-{id:'radicle',word:'radicle',meaning:'First root of the seedling',emoji:'🪴',missingLetter:'a',missingDisplay:'r_dicle',letters:['r','a','d']},
-{id:'plumule',word:'plumule',meaning:'Part that becomes the shoot',emoji:'🌿',missingLetter:'u',missingDisplay:'pl_mule',letters:['p','l','u','m']},
-{id:'cotyledon',word:'cotyledon',meaning:'Seed leaf that stores food',emoji:'🍃',missingLetter:'o',missingDisplay:'c_tyledon',letters:['c','o','t','y']},
-{id:'seed',word:'seed',meaning:'Living part that can grow into a plant',emoji:'🫘',missingLetter:'e',missingDisplay:'s_ed',letters:['s','e','e','d']},
-{id:'moisture',word:'moisture',meaning:'Water present in soil or air',emoji:'💧',missingLetter:'o',missingDisplay:'m_isture',letters:['m','o','i','s','t']},
-{id:'temperature',word:'temperature',meaning:'How hot or cold it is',emoji:'🌡️',missingLetter:'e',missingDisplay:'t_mperature',letters:['t','e','m','p']},
-{id:'experiment',word:'experiment',meaning:'Test done to find an answer',emoji:'🧪',missingLetter:'e',missingDisplay:'exp_riment',letters:['e','x','p']},
-{id:'dormant',word:'dormant',meaning:'Alive but not growing yet',emoji:'😴',missingLetter:'o',missingDisplay:'d_rmant',letters:['d','o','r','m']},
-{id:'seedling',word:'seedling',meaning:'Young plant from a seed',emoji:'🌾',missingLetter:'e',missingDisplay:'s_edling',letters:['s','e','e','d','l']}];
-const QUIZ=[{q:'Only seeds with life will',opts:['germinate','turn to stone','become fish','make iron'],ans:0},
-{q:'The first root of a seedling is the',opts:['radicle','plumule','wing','feather'],ans:0},
-{q:'The part that becomes the shoot is the',opts:['plumule','shark','tiger','stomata'],ans:0},
-{q:'Seed leaves that store food are',opts:['cotyledons','pathogens','vaccines','tigers'],ans:0},
+'When a seed germinates it becomes soaked and the outer shell bursts. First the radicle and then the plumule emerge.',
+'The radicle becomes the root. The plumule becomes the stem and leaf. Food stored in the cotyledon or endosperm is used until photosynthesis is fully functional.',
+'A pea or green gram seed has two cotyledons. A corn seed has one cotyledon. In plants with one cotyledon the food comes from the endosperm.',
+'Hydroponics is a method of growing plants without soil, in a nutrient solution.',
+'New plants can grow from parts other than seeds. Examples are hibiscus, queen of the night (Nisagandhi), pagoda flower (Krishnakireedam) and miracle leaf (Ilamulachi).',
+'Seed dispersal is the process in which seeds from the mother plant reach different locations. Birds, squirrels and humans help to carry seeds.',
+'If all seeds fall at the base of the plant they will not get enough soil, water, sunlight and minerals. That is why seeds must be dispersed.',
+'Coconut floats because the husk is filled with air and it does not rot in water. Milkweed pappus (appooppan thadi) flies in the wind.',
+'Fruits attract birds with fleshy parts. Chaff flower and love grass stick to things. Rubber and balsam burst and release seeds when they ripen.',
+'Leaves may have reticulate venation or parallel venation. Veins bring water to the leaf and take food from the leaf.',
+'Jackfruit has a taproot system. Grass has a fibrous root system. Reticulate venation is often seen with taproot. Parallel venation is often seen with fibrous roots.',
+'Prop root, stilt root, clinging root and pneumatophores are other types of roots. Pneumatophores of mangroves help in the exchange of gases.',
+'Monocot plants have one cotyledon, fibrous roots, unbranched stem and parallel venation. Dicot plants have two cotyledons, taproot, branched stem and reticulate venation.',
+'Taro and yam do not always show the usual relationship between root and leaf. Extinction is the disappearance of organisms. Natural habitats must be protected.'];
+const VOCAB=[{id:'germinate',word:'germinate',meaning:'Begin to grow from a living seed',emoji:'🌱',missingLetter:'e',missingDisplay:'g_rminate',letters:['g','e','r','m']},
+{id:'radicle',word:'radicle',meaning:'Part that grows down and becomes the root',emoji:'🪴',missingLetter:'a',missingDisplay:'r_dicle',letters:['r','a','d']},
+{id:'plumule',word:'plumule',meaning:'Part that grows up and becomes stem and leaf',emoji:'🌿',missingLetter:'u',missingDisplay:'pl_mule',letters:['p','l','u','m']},
+{id:'cotyledon',word:'cotyledon',meaning:'Primary leaf within the seed that stores food',emoji:'🍃',missingLetter:'o',missingDisplay:'c_tyledon',letters:['c','o','t','y']},
+{id:'endosperm',word:'endosperm',meaning:'Food store attached to the cotyledon in corn',emoji:'🌽',missingLetter:'e',missingDisplay:'endosp_rm',letters:['e','n','d','o']},
+{id:'dispersal',word:'dispersal',meaning:'Seeds reaching different places from the mother plant',emoji:'🌬️',missingLetter:'i',missingDisplay:'d_spersal',letters:['d','i','s','p']},
+{id:'venation',word:'venation',meaning:'Arrangement of veins in a leaf',emoji:'🍃',missingLetter:'e',missingDisplay:'v_nation',letters:['v','e','n','a']},
+{id:'taproot',word:'taproot',meaning:'Main root growing down from the stem with branches',emoji:'🌳',missingLetter:'a',missingDisplay:'t_proot',letters:['t','a','p','r']},
+{id:'monocot',word:'monocot',meaning:'Plant with one cotyledon and usually parallel veins',emoji:'🥥',missingLetter:'o',missingDisplay:'m_nocot',letters:['m','o','n','o']},
+{id:'dicot',word:'dicot',meaning:'Plant with two cotyledons and usually reticulate veins',emoji:'🥭',missingLetter:'i',missingDisplay:'d_cot',letters:['d','i','c','o']}];
+const QUIZ=[{q:'Only seeds with life will',opts:['germinate','float always','burst at once','make iron'],ans:0},
+{q:'The part that grows downwards and becomes the root is the',opts:['radicle','plumule','cotyledon','endosperm'],ans:0},
+{q:'The part that grows upwards and becomes stem and leaf is the',opts:['plumule','radicle','husk','vein'],ans:0},
+{q:'The primary leaf within the seed is the',opts:['cotyledon','pneumatophore','stilt root','pappus'],ans:0},
 {q:'Necessary for germination are',opts:['water, air and suitable temperature','only sunlight','only soil','only stones'],ans:0},
-{q:'Sunlight is',opts:['not necessary for germination','the only need','a pathogen','a vaccine'],ans:0},
-{q:'The empty pot showed Ping was',opts:['honest','lazy','a king','a shark'],ans:0},
-{q:'A test done to find an answer is an',opts:['experiment','food web','pandemic','habitat'],ans:0},
-{q:'Seeds kept dry',opts:['do not germinate','always become trees','need no water later','become fish'],ans:0},
-{q:'Seeds placed on wet cotton without soil',opts:['can still germinate','can never germinate','turn into pathogens','need a vaccine'],ans:0},
-{q:'Soil is',opts:['not necessary for the seed to germinate','the only thing a seed needs','a kind of plumule','a pandemic'],ans:0},
-{q:'Different seeds have different',opts:['germination times','number of moons','kinds of vaccines','types of tigers'],ans:0},
-{q:'The life within tiny seeds can grow into',opts:['huge trees','stones only','rivers only','vaccines'],ans:0},
-{q:'Seeds differ in',opts:['colour, size and shape','only one size always','being fish or birds','having feathers'],ans:0},
-{q:'The king gave children seeds to test who was',opts:['honest','the fastest runner','a doctor','a kingfisher'],ans:0},
-{q:'When a green gram seed germinates, the part that comes out first is the',opts:['radicle','feather','vaccine','habitat'],ans:0}];
-const SEQ=[{text:'A wise king gave seeds to children and asked them to grow plants in th',order:1},{text:'Only living seeds germinate. The life within tiny seeds can grow into ',order:2},{text:'Seeds differ in colour, size, shape and other features. Collect and co',order:3},{text:'Even living seeds may not germinate if they do not get the right condi',order:4},{text:'Take wet soil in a glass, put pea seeds, keep it in sunlight and water',order:5},{text:'Is soil necessary? Place seeds on a wet cotton ball without soil. Seed',order:6}];
+{q:'Sunlight is',opts:['not necessary for germination','the only need','needed instead of water','needed instead of air'],ans:0},
+{q:'A corn seed has',opts:['one cotyledon','two cotyledons','no cotyledon','four cotyledons'],ans:0},
+{q:'Food for the corn seedling until leaves grow comes from the',opts:['endosperm','taproot','vein','husk only'],ans:0},
+{q:'Hydroponics is growing plants',opts:['in a nutrient solution without soil','only in dry sand','only in sunlight with no water','only from bursting fruits'],ans:0},
+{q:'Seeds placed on wet cotton without soil',opts:['can still germinate','can never germinate','need a taproot first','need parallel venation'],ans:0},
+{q:'Seed dispersal is',opts:['seeds reaching different locations from the mother plant','growing plants without water','the bursting of the radicle only','making handicrafts from leaves'],ans:0},
+{q:'Coconut can float because',opts:['the husk is filled with air','it has parallel venation','it has two cotyledons','it has a taproot'],ans:0},
+{q:'Milkweed pappus (appooppan thadi) is adapted to travel by',opts:['wind','water only','bursting only','clinging roots'],ans:0},
+{q:'Chaff flower and love grass help dispersal by',opts:['sticking to other things','floating like coconut','photosynthesis','hydroponics'],ans:0},
+{q:'Rubber and balsam disperse seeds when they',opts:['burst on ripening','float on the sea','grow pneumatophores','form a taproot'],ans:0},
+{q:'A net-like arrangement of veins is',opts:['reticulate venation','parallel venation','fibrous root','endosperm'],ans:0},
+{q:'Jackfruit tree has',opts:['taproot and reticulate venation','fibrous root and parallel venation','no roots','only clinging roots'],ans:0},
+{q:'Grass has',opts:['fibrous root system','only a taproot','pneumatophores only','two cotyledons always'],ans:0},
+{q:'Monocot plants have',opts:['one cotyledon, fibrous roots and parallel venation','two cotyledons and a taproot','only prop roots','no seeds ever'],ans:0},
+{q:'To save plants from extinction we must',opts:['protect their natural habitats','cut all wild plants','stop seed dispersal','grow only in steel glasses'],ans:0}];
+const SEQ=[{text:'Only living seeds germinate. Ping brought an empty pot and was declared the winner.',order:1},{text:'Water, air and suitable temperature are needed for germination. Soil and sunlight are not.',order:2},{text:'The seed soaks, the shell bursts, the radicle comes out first and then the plumule.',order:3},{text:'Food in the cotyledon or endosperm is used until the leaves can make food.',order:4},{text:'Seeds are dispersed by wind, water, animals and bursting fruits so they get space to grow.',order:5},{text:'Monocots have one cotyledon and usually parallel venation. Dicots have two cotyledons and usually reticulate venation.',order:6}];
 const TF=[
-  {q:'Sunlight is always required for a seed to germinate.',ans:false},
+  {q:'Sunlight is necessary for a seed to germinate.',ans:false},
   {q:'Only living seeds germinate.',ans:true},
   {q:'Water is necessary for germination.',ans:true},
   {q:'Soil is necessary for a seed to germinate.',ans:false},
-  {q:'The radicle is the first root of a seedling.',ans:true},
-  {q:'The plumule becomes the shoot.',ans:true},
-  {q:'Cotyledons store food for the young plant.',ans:true},
-  {q:'Seeds kept dry germinate quickly.',ans:false},
-  {q:'An experiment is a test done to find an answer.',ans:true},
+  {q:'The radicle becomes the root of the plant.',ans:true},
+  {q:'A corn seed has two cotyledons like a pea seed.',ans:false},
+  {q:'Hydroponics grows plants in a nutrient solution without soil.',ans:true},
+  {q:'Seed dispersal helps seeds get soil, water, sunlight and minerals.',ans:true},
+  {q:'Coconut husk filled with air helps the fruit float.',ans:true},
   {q:'All seeds germinate in the same number of days.',ans:false},
-  {q:'Seeds can germinate on wet cotton without soil.',ans:true},
-  {q:'The empty pot showed that Ping was honest.',ans:true},
-  {q:'Air is needed for seed germination.',ans:true},
-  {q:'Suitable temperature is needed for germination.',ans:true},
-  {q:'Lifeless seeds will grow into huge trees.',ans:false}
+  {q:'Jackfruit has a taproot system and reticulate venation.',ans:true},
+  {q:'Grass has a fibrous root system.',ans:true},
+  {q:'Monocot plants have two cotyledons.',ans:false},
+  {q:'Pneumatophores help mangroves in the exchange of gases.',ans:true},
+  {q:'To save organisms from extinction, their natural habitats must be protected.',ans:true}
 ];
 let state={score:0,lives:5,stars:0,audioEnabled:true,visited:{},gi:0,queue:[]};
 function showScreen(id){document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');state.visited[id]=1;updateStatsUI()}
@@ -216,100 +226,237 @@ function setContent(title,html){document.getElementById('contentTitle').innerTex
 function openRead(){let h='';READ_LINES.forEach((line,i)=>{h+=`<div class="story-para" data-i="${i}"><p>${line}</p></div>`});setContent('Lesson',h);}
 function openLearn(){let h='<div class="cards-grid">';VOCAB.forEach(v=>{h+=`<div class="word-card" onclick="speakText('${v.word.replace(/'/g,"\\'")}')"><div style="font-size:2.2rem">${v.emoji}</div><div class="word-eng">${v.word}</div><div class="word-meaning">${v.meaning}</div><button class="mini-play">🔊</button></div>`});setContent('🗂️ Scientific Terms',h+'</div>')}
 function openActs(){setContent('📝 Activities & Tasks',`
-<div class="activity-block"><div class="activity-heading">1. Observe and write</div><p>Write two living and two non-living things from your surroundings.</p><textarea class="write-box"></textarea></div>
-<div class="activity-block"><div class="activity-heading">2. Classify</div><p>Sort: dengue, diabetes, photosynthesis, vaccine, drought, habitat.</p><textarea class="write-box" placeholder="Living process / disease / place / tool"></textarea></div>
-<div class="activity-block"><div class="activity-heading">3. Think</div><p>How does this lesson help us take better care of nature or our body?</p><textarea class="write-box"></textarea></div>
-<div class="activity-block"><div class="activity-heading">4. Pair work</div><p>Ask a friend one quiz question from this chapter and record the answer.</p><textarea class="write-box"></textarea></div>
-<div class="activity-block"><div class="activity-heading">5. Draw</div><p>Draw one diagram from the lesson in your science diary and label it.</p></div>`)}
+<div class="activity-block"><div class="activity-heading">1. Story of Ping</div>
+<p>Have you read the story of Ping? Only living seeds germinate, right? Isn't it the life within tiny seeds that grows into even huge trees?</p>
+<textarea class="write-box" placeholder="Write what the story taught you"></textarea></div>
+<div class="activity-block"><div class="activity-heading">2. Collect and display seeds</div>
+<p>Collect a variety of seeds. Display them in class and write their characteristics.</p>
+<p>• Name of the plant &nbsp; • Colour &nbsp; • Size &nbsp; • Shape &nbsp; • Other features</p>
+<p>Even though the seeds have life, will all the seeds buried in the soil germinate? Why don't all the seeds germinate?</p>
+<textarea class="write-box"></textarea></div>
+<div class="activity-block"><div class="activity-heading">3. Let us germinate seeds</div>
+<p>What factors are required for germination of the seed? Write down your guess. • Water &nbsp; • ________ &nbsp; • ________ &nbsp; • ________</p>
+<p>Take some wet soil in a glass and put some pea seeds in it. Place it where it will get sunlight. Water to keep moisture. Observe every day.</p>
+<p>What all factors did the seeds get? Soil, water, air, sunlight. Are all these necessary?</p>
+<textarea class="write-box"></textarea></div>
+<div class="activity-block"><div class="activity-heading">4. Is soil necessary? (Table 4.1)</div>
+<p>Put a wet cotton ball in a glass and place the seeds on it. What factors do the seeds gain? What factors do they lose?</p>
+<p>Gets: water, air, sunlight. Does not get: soil.</p>
+<textarea class="write-box"></textarea></div>
+<div class="activity-block"><div class="activity-heading">5. Is water necessary? Is sunlight necessary?</div>
+<p>Which factor should be kept out to test water? Plan the experiment.</p>
+<p>To leave out sunlight: use a steel glass instead of a transparent glass.</p>
+<textarea class="write-box"></textarea></div>
+<div class="activity-block"><div class="activity-heading">6. Four-glass experiment (Table 4.2)</div>
+<p>Place green gram so that Glass 1 gets soil, air, water and sunlight. Glass 2 except soil. Glass 3 except water. Glass 4 except sunlight. Write observations for days one to four.</p>
+<p>Which factors were found necessary for germination? Present the findings to the class.</p>
+<textarea class="write-box"></textarea></div>
+<div class="activity-block"><div class="activity-heading">7. Life within the seed (Table 4.3)</div>
+<p>Observe germination of green gram. Record for five days: size of the seed, outer covering, radicle, plumule, cotyledon. Illustrate in the science diary.</p>
+<textarea class="write-box"></textarea></div>
+<div class="activity-block"><div class="activity-heading">8. After germination</div>
+<p>Which plant grows best after germination? Which factors did the best growing plant receive? • Sunlight • Air • ________ • ________</p>
+<textarea class="write-box"></textarea></div>
+<div class="activity-block"><div class="activity-heading">9. Cotyledon and endosperm</div>
+<p>How many cotyledons does a pea seed have? Look at corn. There is only one cotyledon. Endosperm is the part attached to the cotyledon. In plants with one cotyledon, food comes from the endosperm until leaves grow.</p>
+<p>Germinate tamarind, jackfruit, cashew, rice and corn. Observe changes. Open a seed with a hand lens and draw cotyledon and endosperm.</p>
+<textarea class="write-box"></textarea></div>
+<div class="activity-block"><div class="activity-heading">10. Planting without seeds (Figure 4.6)</div>
+<p>Are seeds the only planting material? Which parts of hibiscus, queen of the night (Nisagandhi), pagoda flower (Krishnakireedam) and miracle leaf (Ilamulachi) give rise to new plants? Visit the biodiversity garden. Grow plants other than from seed and record inferences.</p>
+<textarea class="write-box"></textarea></div>
+<div class="activity-block"><div class="activity-heading">11. Seeds in many places</div>
+<p>Tree: Why are you eating my fruit? Bird: I am also carrying the seeds to many places. Tree: Will my seed not fall and germinate under me? Bird: Do you have enough space for so many seeds?</p>
+<p>What creatures transport seeds? • Squirrel • ________ • ________ What is the role of humans? Do organisms alone distribute seeds? Discuss.</p>
+<textarea class="write-box"></textarea></div>
+<div class="activity-block"><div class="activity-heading">12. Why seed distribution?</div>
+<p>If all seeds germinate at the base of the plant they will not get soil, water, sunlight and minerals. This is why different plants are found in one region and one plant is found in different regions.</p>
+<textarea class="write-box"></textarea></div>
+<div class="activity-block"><div class="activity-heading">13. Adaptations for seed dispersal</div>
+<p>Coconut: does not rot in water; husk filled with air so it floats. Why does milkweed pappus fly? Features of fruits that attract birds: fleshy parts, ________, ________. Chaff flower and love grass stick. Rubber and balsam burst when they ripen.</p>
+<p>Observe surroundings. Complete the seed-dispersal wheel (Illustration 4.5): through wind, through water, through animals, bursting.</p>
+<textarea class="write-box"></textarea></div>
+<div class="activity-block"><div class="activity-heading">14. Other uses of seeds — seed crafts</div>
+<p>What are the other uses of seeds? What seed crafts do you know? Make various handicrafts using seeds and display them in the class.</p>
+<textarea class="write-box"></textarea></div>
+<div class="activity-block"><div class="activity-heading">15. Variety in leaves — venation</div>
+<p>What remains in leaves that have lost their green parts? Veins. Reticulate venation: a main vein with net-like branches. Parallel venation: veins run from the node to the tip without touching. Find leaves of both kinds and write plant names (Table 4.4).</p>
+<textarea class="write-box"></textarea></div>
+<div class="activity-block"><div class="activity-heading">16. Roots and venation (Table 4.5)</div>
+<p>Is there a relationship between venation and roots? Draw roots of a plant with reticulate venation and one with parallel venation. Compare with jackfruit (taproot) and grass (fibrous roots).</p>
+<p>Complete: Green gram / Grass / Jackfruit tree / Coconut tree — venation and root system. Find the relationship.</p>
+<textarea class="write-box"></textarea></div>
+<div class="activity-block"><div class="activity-heading">17. Monocot and dicot (Table 4.6)</div>
+<p>Observe Group 1 (coconut-like) and Group 2 (mango-like). Write differences in root, stem, leaf and number of cotyledons. Plants with one cotyledon are monocot plants. What do we call plants with two cotyledons?</p>
+<p>Taro and yam do not always show this root–leaf relationship. Find more examples.</p>
+<textarea class="write-box"></textarea></div>
+<div class="activity-block"><div class="activity-heading">18. To protect from extinction</div>
+<p>Look at Indian prickly ash (Mullilam) and Thumba. Which plants are in decline in your locality? Make a list. Extinction is the reduction and disappearance of an organism. Protect natural habitats.</p>
+<textarea class="write-box"></textarea></div>`)}
 function openLabs(){setContent('🔬 Observe & Experiment',`
-<div class="activity-block"><div class="activity-heading">Lab 1</div><p>Aim, materials, method, observation, conclusion — write a small experiment connected to this chapter.</p><textarea class="write-box"></textarea></div>
-<div class="activity-block"><div class="activity-heading">Lab 2</div><p>What safety rule will you follow? Why is observation more important than guessing?</p><textarea class="write-box"></textarea></div>
-<div class="activity-block"><div class="activity-heading">Lab 3</div><p>Repeat the observation after one day. What changed?</p><textarea class="write-box"></textarea></div>`)}
+<div class="activity-block"><div class="activity-heading">1. Four-glass germination (Table 4.2)</div>
+<p><b>Aim:</b> To find which factors are necessary for seed germination.</p>
+<p><b>Materials:</b> Green gram seeds, four glasses, wet soil, wet cotton, water, one steel glass or cover to block sunlight.</p>
+<p><b>Method:</b> Glass 1 — soil, air, water, sunlight. Glass 2 — all except soil (wet cotton). Glass 3 — all except water. Glass 4 — all except sunlight.</p>
+<p><b>Record:</b> Day 1 to Day 4 observations for each glass.</p>
+<textarea class="write-box" placeholder="Write observations and conclusion"></textarea></div>
+<div class="activity-block"><div class="activity-heading">2. Is soil necessary?</div>
+<p>Put a wet cotton ball in a glass and place seeds on it. Compare with seeds in wet soil. What factors does the seed get? What does it lose? (Table 4.1)</p>
+<textarea class="write-box"></textarea></div>
+<div class="activity-block"><div class="activity-heading">3. Is water necessary?</div>
+<p>Which factor should be kept out? Plan: keep seeds dry but give air and sunlight. Do they germinate?</p>
+<textarea class="write-box"></textarea></div>
+<div class="activity-block"><div class="activity-heading">4. Is sunlight necessary?</div>
+<p>What change is needed? Use a steel glass instead of a transparent glass. Observe whether seeds still germinate.</p>
+<textarea class="write-box"></textarea></div>
+<div class="activity-block"><div class="activity-heading">5. Five-day changes (Table 4.3)</div>
+<p>Record size of seed, outer covering, radicle, plumule and cotyledon from first day to fifth day. Illustrate in the science diary.</p>
+<textarea class="write-box"></textarea></div>
+<div class="activity-block"><div class="activity-heading">6. Germinate many seeds</div>
+<p>Germinate tamarind, jackfruit, cashew, rice and corn. Observe changes. Use a hand lens. Open the seed and draw cotyledon and endosperm.</p>
+<textarea class="write-box"></textarea></div>
+<div class="activity-block"><div class="activity-heading">7. Planting without seeds</div>
+<p>Grow plants from stem or leaf in the biodiversity garden (hibiscus, queen of the night, pagoda flower, miracle leaf). Record inferences.</p>
+<textarea class="write-box"></textarea></div>
+<div class="activity-block"><div class="activity-heading">8. Venation and roots</div>
+<p>Examine leaves around you. List venation and root system of green gram, grass, jackfruit and coconut (Table 4.5). Draw taproot of jackfruit and fibrous roots of grass.</p>
+<textarea class="write-box"></textarea></div>
+<div class="activity-block"><div class="activity-heading">9. Hydroponics</div>
+<p>Hydroponics is growing plants without soil in a nutrient solution. How is this linked to the finding that soil is not needed for germination?</p>
+<textarea class="write-box"></textarea></div>`)}
 function openQuiz(){let h='';QUIZ.forEach((q,i)=>{h+=`<div class="quiz-q"><div><b>${i+1}. ${q.q}</b></div>`;q.opts.forEach((o,oi)=>{h+=`<div class="quiz-opt" data-i="${i}" data-o="${oi}" onclick="this.parentNode.querySelectorAll('.quiz-opt').forEach(x=>x.classList.remove('picked'));this.classList.add('picked')">${o}</div>`});h+='</div>'});
 h+='<div style="text-align:center"><button class="submit-quiz-btn" onclick="submitQuiz()">Submit</button></div><div id="quizRes"></div>';
 setContent('❓ Chapter Quiz',h)}
 function submitQuiz(){let s=0;QUIZ.forEach((q,i)=>{const opts=document.querySelectorAll('.quiz-opt[data-i="'+i+'"]');const picked=document.querySelector('.quiz-opt[data-i="'+i+'"].picked');opts.forEach(o=>{if(+o.dataset.o===q.ans)o.classList.add('correct-ans');else if(o.classList.contains('picked'))o.classList.add('wrong-ans')});if(picked&&+picked.dataset.o===q.ans)s++});state.score+=s*10;if(s===QUIZ.length)state.stars++;updateStatsUI();document.getElementById('quizRes').innerHTML='<p><b>Score: '+s+' / '+QUIZ.length+'</b></p>'}
-function openAssess(){setContent("✅ Let's Assess",`<div class="activity-block"><div class="activity-heading">Answer in your notebook (15 questions)</div>
-<p>1. Write the title and two key ideas of this lesson.</p>
-<p>2. List five scientific terms from this unit and their meanings.</p>
-<p>3. Give one real-life example connected to the lesson.</p>
-<p>4. Write one experiment or observation you can do at home.</p>
-<p>5. Draw and label one diagram from the unit.</p>
-<p>6. Write two true statements and one false statement about the lesson.</p>
-<p>7. How does this lesson help us in daily life?</p>
-<p>8. Name two living or non-living things that this chapter talks about.</p>
-<p>9. Write one question you still have after studying the unit.</p>
-<p>10. Make a two-column table: What I knew / What I learned.</p>
-<p>11. Write three safety or healthy habits related to this chapter.</p>
-<p>12. Explain one cause-and-effect idea from the lesson.</p>
-<p>13. Prepare two quiz questions for your friend.</p>
-<p>14. Write a five-sentence paragraph using three scientific terms.</p>
-<p>15. What will you share with your family from this unit?</p>
+function openAssess(){setContent("✅ Let's Assess",`
+<div class="activity-block"><div class="activity-heading">Let us assess (from the textbook)</div>
+<p><b>1.</b> What is the change in the size of the cotyledon when the seeds begin to germinate? What is the reason for this?</p>
+<textarea class="write-box"></textarea>
+<p><b>2.</b> Classify the different plants you see around, according to the method of germination from seed, stem, root and leaf.</p>
+<textarea class="write-box"></textarea>
+<p><b>3.</b> Complete the table given below.</p>
+<p><b>Method of seed dispersal</b> &nbsp;|&nbsp; <b>Adaptations of the seed</b></p>
+<p>________ &nbsp;|&nbsp; Fleshy parts. Parts that help it cling to other things.</p>
+<p>________ &nbsp;|&nbsp; The weight of the seed is less. Hair-like parts to fly.</p>
+<p>Through water &nbsp;|&nbsp; ________</p>
+<p>________ &nbsp;|&nbsp; When the fruit ripens, the outer shell splits open and the seeds are scattered outside.</p>
+<textarea class="write-box" placeholder="Write the completed table"></textarea></div>
+<div class="activity-block"><div class="activity-heading">More questions from the lesson</div>
+<p>4. Which factors are necessary for seed germination? Which are not?</p>
+<p>5. What is the difference between radicle and plumule?</p>
+<p>6. How many cotyledons does a pea seed have? How many does corn have?</p>
+<p>7. What is hydroponics?</p>
+<p>8. Name four plants that can be grown from parts other than seeds.</p>
+<p>9. Why must seeds be dispersed?</p>
+<p>10. How is coconut adapted to travel through water?</p>
+<p>11. What is reticulate venation? What is parallel venation?</p>
+<p>12. What is a taproot system? What is a fibrous root system?</p>
+<p>13. Write two characters of monocot plants and two of dicot plants.</p>
+<p>14. What are pneumatophores?</p>
+<p>15. What is extinction? How can we protect plants that are declining?</p>
 <textarea class="write-box" placeholder="Write your answers here or in your notebook"></textarea></div>`)}
 function openGloss(){let h='<table style="width:100%;border-collapse:collapse">';VOCAB.forEach(v=>{h+=`<tr><td style="padding:8px;border-bottom:1px solid #eee;font-size:1.3rem">${v.emoji}</td><td style="padding:8px;border-bottom:1px solid #eee"><b>${v.word}</b></td><td style="padding:8px;border-bottom:1px solid #eee">${v.meaning}</td><td><button class="mini-play" onclick="speakText('${v.word.replace(/'/g,"\\'")}')">🔊</button></td></tr>`});setContent('📚 Glossary',h+'</table>')}
-function openDiary(){setContent('📔 Science Diary',`<div class="activity-block"><div class="activity-heading">Today I observed...</div><textarea class="write-box" placeholder="Date, place, what I saw, what I learned"></textarea></div><div class="activity-block"><div class="activity-heading">My drawing note</div><p>Sketch and label one idea from the lesson.</p></div>`)}
-function openRole(){setContent('🎭 Role Play Zone',`<div class="activity-block"><div class="activity-heading">Speak in pairs</div><p>One student is a scientist. The other asks three questions from this chapter. Use the scientific terms you learned.</p><textarea class="write-box" placeholder="Write your dialogue"></textarea></div>`)}
-function openFollow(){setContent('🌱 Extended Activities',`<div class="activity-block"><div class="activity-heading">Home task</div><p>Share one healthy or eco-friendly action with your family and write what they said.</p><textarea class="write-box"></textarea></div><div class="activity-block"><div class="activity-heading">Project</div><p>Make a poster for the class wall using one big idea from this unit.</p></div>`)}
+function openDiary(){setContent('📔 Science Diary',`
+<div class="activity-block"><div class="activity-heading">Four-glass experiment — daily record</div>
+<p>Write each day's observation of Glasses 1 to 4 (Table 4.2) as asked in the lesson.</p>
+<textarea class="write-box" placeholder="Day, glass, what I saw"></textarea></div>
+<div class="activity-block"><div class="activity-heading">Table 4.3 — changes in five days</div>
+<p>Size of seed, outer covering, radicle, plumule, cotyledon. Illustrate the recordings.</p>
+<textarea class="write-box"></textarea></div>
+<div class="activity-block"><div class="activity-heading">Draw cotyledon and endosperm</div>
+<p>Carefully open a germinated seed. Draw the cotyledon and endosperm.</p></div>
+<div class="activity-block"><div class="activity-heading">Seed dispersal around me</div>
+<p>Observe your surroundings. Write the methods of seed dispersal in different plants (Illustration 4.5).</p>
+<textarea class="write-box"></textarea></div>
+<div class="activity-block"><div class="activity-heading">Venation and roots</div>
+<p>Examine leaves and roots. Complete Table 4.5. Draw jackfruit taproot and grass fibrous roots.</p>
+<textarea class="write-box"></textarea></div>
+<div class="activity-block"><div class="activity-heading">Plants in decline</div>
+<p>List plants like Mullilam and Thumba that are decreasing in your locality.</p>
+<textarea class="write-box"></textarea></div>`)}
+function openRole(){setContent('🎭 Role Play Zone',`
+<div class="activity-block"><div class="activity-heading">1. The king and Ping</div>
+<p>Act the story: the king gives seeds, children bring flowered plants, Ping brings an empty pot, the king declares him the winner because only living seeds germinate.</p>
+<textarea class="write-box" placeholder="Write your dialogue"></textarea></div>
+<div class="activity-block"><div class="activity-heading">2. Malabar plum tree and the bird (Illustration 4.4)</div>
+<p>Tree: Why are you eating my fruit?<br>
+Bird: I am not only eating your fruit. I am also carrying the seeds to many places.<br>
+Tree: Even if you are not there, will my seed not fall down and germinate?<br>
+Bird: Do you have enough space for so many seeds to grow under you?</p>
+<p>Continue the conversation. Add a squirrel and a child who plants seeds in a new place.</p>
+<textarea class="write-box"></textarea></div>
+<div class="activity-block"><div class="activity-heading">3. Seed travellers</div>
+<p>One student is a coconut floating on water. One is milkweed pappus in the wind. One is a balsam fruit that bursts. One is a chaff flower that sticks to clothes. Each explains its adaptation.</p>
+<textarea class="write-box"></textarea></div>`)}
+function openFollow(){setContent('🌱 Extended Activities',`
+<div class="activity-block"><div class="activity-heading">Extended activity 1 (textbook)</div>
+<p>Collect some seeds of different types of vegetables and germinate them. Observe and record the time difference in germination of the seeds. Plant the germinated seeds.</p>
+<textarea class="write-box" placeholder="Seed name, days to germinate, what I planted"></textarea></div>
+<div class="activity-block"><div class="activity-heading">Extended activity 2 (textbook)</div>
+<p>Discuss and find out what actions can be taken to protect plants that are declining in your locality.</p>
+<textarea class="write-box"></textarea></div>
+<div class="activity-block"><div class="activity-heading">More from the lesson</div>
+<p>Make various handicrafts using seeds and display them in the class.</p>
+<p>Grow plants other than from seed in the biodiversity garden and record the inferences.</p>
+<p>Find more plants like taro and yam that do not show the usual relationship between root and leaf.</p>
+<textarea class="write-box"></textarea></div>`)}
 function openModel(){setContent('📋 Model Question Paper', qpToolbar()+`
 <div class="qp-act"><b>STD 5 · Basic Science · Unit 4</b><div class="qp-meta">Model Question Paper · Seeds of Life · Time 45 min · 40 marks</div></div>
 <div class="qp-act"><b>I. Fill in the blanks</b> <span class="qp-mark">5 x 1 = 5</span>
 <p>1. Only seeds with ________ will germinate.</p>
-<p>2. The first root of a seedling is the ________.</p>
-<p>3. The part that becomes the shoot is the ________.</p>
-<p>4. Seed leaves that store food are ________.</p>
-<p>5. A test done to find an answer is an ________.</p></div>
+<p>2. The part that grows down and becomes the root is the ________.</p>
+<p>3. The primary leaf within the seed is the ________.</p>
+<p>4. Growing plants in a nutrient solution without soil is ________.</p>
+<p>5. Seeds reaching different locations from the mother plant is ________.</p></div>
 <div class="qp-act"><b>II. Choose the correct answer</b> <span class="qp-mark">5 x 1 = 5</span>
 <p>6. Sunlight is (necessary / not necessary) for germination.</p>
-<p>7. Seeds kept dry (germinate / do not germinate).</p>
-<p>8. Soil is (necessary / not necessary) for the seed to germinate.</p>
-<p>9. Ping's empty pot showed he was (honest / lazy).</p>
-<p>10. Water, air and suitable temperature are (needed / not needed) for germination.</p></div>
+<p>7. A corn seed has (one / two) cotyledon(s).</p>
+<p>8. Coconut is adapted to travel through (wind / water).</p>
+<p>9. Jackfruit has a (taproot / fibrous root) system.</p>
+<p>10. Plants with one cotyledon are called (monocot / dicot) plants.</p></div>
 <div class="qp-act"><b>III. True or False</b> <span class="qp-mark">5 x 1 = 5</span>
-<p>11. All seeds look the same in colour and size.</p>
-<p>12. Seeds on wet cotton can germinate without soil.</p>
-<p>13. Different seeds need different times to germinate.</p>
-<p>14. Lifeless seeds grow into huge trees.</p>
-<p>15. The life inside a tiny seed can become a big plant.</p></div>
+<p>11. Soil is necessary for a seed to germinate.</p>
+<p>12. Milkweed pappus flies in the wind.</p>
+<p>13. Grass has a fibrous root system and usually parallel venation.</p>
+<p>14. Rubber and balsam burst and release seeds when they ripen.</p>
+<p>15. To save plants from extinction we must protect their natural habitats.</p></div>
 <div class="qp-act"><b>IV. Short answers</b> <span class="qp-mark">3 x 3 = 9</span>
 <p>16. What conditions are necessary for seed germination?</p>
 <p>17. What is the difference between radicle and plumule?</p>
-<p>18. Why did the king give lifeless seeds to the children in the story?</p></div>
+<p>18. Why must seeds be dispersed from the mother plant?</p></div>
 <div class="qp-act"><b>V. Answer in a paragraph</b> <span class="qp-mark">2 x 5 = 10</span>
-<p>19. Describe an experiment to test whether sunlight is needed for germination.</p>
-<p>20. Explain why water is necessary but soil is not necessary for a seed to germinate.</p></div>
+<p>19. Describe the four-glass experiment to find the factors needed for germination.</p>
+<p>20. Write the characters of monocot plants and dicot plants given in the lesson.</p></div>
 <div class="qp-act"><b>VI. Draw and label</b> <span class="qp-mark">6</span>
 <p>21. Draw a germinating green gram seed. Label radicle, plumule and cotyledon.</p></div>`)}
-
 function openUnitQP(){setContent('📄 Unit Question Paper', qpToolbar()+`
 <div class="qp-act"><b>Unit Test · Seeds of Life</b><div class="qp-meta">STD 5 · Basic Science · Unit 4 · Time 45 minutes · 40 marks</div></div>
 <div class="qp-act"><b>Activity 1 — Fill in</b> <span class="qp-mark">5 marks</span>
-<p>1. Coming out of the seed and starting to grow: ________</p>
-<p>2. First root: ________</p>
-<p>3. Part that becomes the shoot: ________</p>
-<p>4. Seed leaves: ________</p>
-<p>5. Test to find an answer: ________</p></div>
+<p>1. Primary leaf within the seed: ________</p>
+<p>2. Arrangement of veins in a leaf: ________</p>
+<p>3. Main root growing down from the stem: ________</p>
+<p>4. Plant with two cotyledons: ________</p>
+<p>5. Breathing roots of mangroves: ________</p></div>
 <div class="qp-act"><b>Activity 2 — Choose and write</b> <span class="qp-mark">5 marks</span>
-<p>6. Only (living / lifeless) seeds germinate.</p>
-<p>7. Seeds in a dry glass (germinate / do not germinate).</p>
-<p>8. Seeds in a dark steel glass (can / cannot) germinate.</p>
-<p>9. Cotyledons (store food / make plastic).</p>
-<p>10. Ping was chosen because he was (honest / the best gardener that season).</p></div>
+<p>6. Seeds on wet cotton without soil (can / cannot) germinate.</p>
+<p>7. Milkweed pappus is adapted to fly through (wind / water).</p>
+<p>8. Miracle leaf can give a new plant from the (leaf / only from seed).</p>
+<p>9. Parallel venation is a character of (monocot / dicot) plants.</p>
+<p>10. Taro and yam (always / do not always) show the usual root–leaf relationship.</p></div>
 <div class="qp-act"><b>Activity 3 — True or False</b> <span class="qp-mark">5 marks</span>
-<p>11. Air is needed for germination.</p>
-<p>12. Suitable temperature is needed for germination.</p>
-<p>13. Every seed germinates on the same day.</p>
-<p>14. Soil must be present for the first root to appear.</p>
-<p>15. We can compare seeds by colour, size and shape.</p></div>
+<p>11. Air and suitable temperature are needed for germination.</p>
+<p>12. All seeds germinate in the same number of days.</p>
+<p>13. Chaff flower and love grass have parts that help them stick.</p>
+<p>14. Rubber and balsam burst and release seeds when they ripen.</p>
+<p>15. To save plants from extinction we must protect their habitats.</p></div>
 <div class="qp-act"><b>Activity 4 — Short answers</b> <span class="qp-mark">9 marks</span>
-<p>16. Write the story idea: what happened when Ping's seeds did not grow?</p>
-<p>17. How can you show that water is necessary for germination?</p>
-<p>18. What comes out first when a green gram seed germinates?</p></div>
+<p>16. How can you test whether sunlight is needed for germination?</p>
+<p>17. Name two plants grown from parts other than seeds, as given in the lesson.</p>
+<p>18. Write the relationship between venation and root system using jackfruit and grass.</p></div>
 <div class="qp-act"><b>Activity 5 — Think and write</b> <span class="qp-mark">10 marks</span>
-<p>19. Design an experiment with two glasses to test whether soil is needed for germination. Write aim, materials and observation.</p>
-<p>20. Why is honesty as important as science in Ping's story? Write five sentences.</p></div>
-<div class="qp-act"><b>Activity 6 — Diagram</b> <span class="qp-mark">6 marks</span>
-<p>21. Draw two labelled pictures: a dry seed and a germinating seed. Write one difference below.</p></div>`)}
-
+<p>19. Complete a seed-dispersal table: animals, wind, water, bursting — with one adaptation and one example each. (Let us assess Q.3)</p>
+<p>20. What is the change in the size of the cotyledon when seeds begin to germinate? What is the reason? (Let us assess Q.1)</p></div>
+<div class="qp-act"><b>Activity 6 — Classify and draw</b> <span class="qp-mark">6 marks</span>
+<p>21. Classify plants around you by new growth from seed, stem, root or leaf. Draw and label a germinating seed.</p></div>`)}
 function openInstr(){setContent('ℹ️ Instructions',`<div class="activity-block"><p>1. Open Lesson to read the chapter text.</p><p>2. Learn the scientific terms by tapping each card.</p><p>3. Try every game. Wrong answers reduce lives.</p><p>4. Sound works inside the app without a browser voice.</p><p>5. Open Model Question Paper or Unit Question Paper to Print or Save PDF.</p></div>`)}
 function openProg(){const n=Object.keys(state.visited).length;setContent('📊 My Progress',`<p>You opened <b>${n}</b> section(s).</p><p>Score ${state.score} · Stars ${state.stars}</p>`)}
 function launchGame(n){state.gi=0;state.queue=[...VOCAB].sort(()=>Math.random()-.5);state.active=n;showScreen('gameScreen');renderGame()}
